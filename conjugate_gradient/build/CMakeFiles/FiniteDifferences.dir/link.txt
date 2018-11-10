@@ -1,0 +1,1 @@
+/usr/bin/g++-8  -O2 -g -DNDEBUG   CMakeFiles/FiniteDifferences.dir/src/main.cpp.o  -o FiniteDifferences 

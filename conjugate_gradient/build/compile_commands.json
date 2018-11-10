@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/janos/sc1/conjugate_gradient/build",
+  "command": "/usr/bin/g++-8   -I/usr/include/eigen3  -O2 -g -DNDEBUG   -std=gnu++17 -o CMakeFiles/FiniteDifferences.dir/src/main.cpp.o -c /home/janos/sc1/conjugate_gradient/src/main.cpp",
+  "file": "/home/janos/sc1/conjugate_gradient/src/main.cpp"
+}
+]
