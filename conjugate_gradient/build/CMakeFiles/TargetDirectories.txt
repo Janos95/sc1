@@ -1,3 +1,0 @@
-/home/janos/sc1/conjugate_gradient/build/CMakeFiles/rebuild_cache.dir
-/home/janos/sc1/conjugate_gradient/build/CMakeFiles/FiniteDifferences.dir
-/home/janos/sc1/conjugate_gradient/build/CMakeFiles/edit_cache.dir
