@@ -25,7 +25,7 @@ using Scalar = double; //not be integral
 
 int global;
 
-Scalar computeCgError(Scalar nx)
+Scalar computeCgError(Scalar nx, int iterations)
 {
     int n = nx;
     
@@ -74,15 +74,16 @@ int main(int argc, char** argv)
     std::vector<char> blue = {(char)0,(char)0,(char)255,(char)255};
     
     plotter->addPlotData (computeTriDiagError, 100, 500, "TriDiagSolver", 100, vtkChart::POINTS, blue);
+    
     for(const int iterations: {1, 5, 500})
     {
         std::ostringstream ss;
         ss << "CgSolver with " << iterations << " iterations";
         
-        //std::function<double (double)> cgErrorN = std::bind(_1, iterations);
+        using namespace std::placeholders;
+        std::function<double(double)> cgErrorIterations = std::bind(computeCgError, _1, iterations);
         
-        global = iterations;
-        plotter->addPlotData (computeCgError, 100, 500, ss.str().c_str(), 100, vtkChart::POINTS, red);
+        plotter->addPlotData (cgErrorIterations, 100, 500, ss.str().c_str(), 100, vtkChart::POINTS, red);
     }
     
     plotter->plot ();

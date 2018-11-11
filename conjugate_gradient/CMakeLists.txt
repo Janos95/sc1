@@ -10,22 +10,17 @@ set_target_properties(FiniteDifferences PROPERTIES
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp -lpthread")
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
-# set(Eigen3_Dir "/home/janos/sc1/eigen-git-mirror-master/cmake")
 
 find_package(Eigen3)
 find_package(MKL)
 find_package(PCL 1.2 REQUIRED)
-# 
-# include_directories(${PCL_INCLUDE_DIRS})
-# link_directories(${PCL_LIBRARY_DIRS})
-# add_definitions(${PCL_DEFINITIONS})
 
 find_package(Boost REQUIRED COMPONENTS
     timer 
 )
 
 target_include_directories(FiniteDifferences PUBLIC 
-    ${EIGEN3_INCLUDE_DIRS} 
+    Eigen3::eigen
     ${MKL_INCLUDE_DIRS}
     ${PCL_INCLUDE_DIRS}
 )

@@ -4,7 +4,7 @@
 
 #include <boost/timer/timer.hpp>
 
-//#undef EIGEN_USE_MKL_ALL
+def EIGEN_USE_MKL_ALL
 
 #include <Eigen/Sparse>
 #include <Eigen/Core>
@@ -90,7 +90,3 @@ private:
 
 }
 
-
-//class Base<T>
-
-//class Derived : Base<Derived>
