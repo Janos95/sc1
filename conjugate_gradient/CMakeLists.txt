@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.10)
 
 project(FiniteDifferences LANGUAGES CXX)
 
@@ -8,16 +8,30 @@ set_target_properties(FiniteDifferences PROPERTIES
     CXX_STANDARD 17
 )
 
-# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lboost_system")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp -lpthread")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
+# set(Eigen3_Dir "/home/janos/sc1/eigen-git-mirror-master/cmake")
 
+find_package(Eigen3)
+find_package(MKL)
+find_package(PCL 1.2 REQUIRED)
+# 
+# include_directories(${PCL_INCLUDE_DIRS})
+# link_directories(${PCL_LIBRARY_DIRS})
+# add_definitions(${PCL_DEFINITIONS})
 
-find_package (Eigen3 REQUIRED)
-
-set(Boost_USE_STATIC_LIBS OFF)
-set(Boost_USE_MULTITHREADED ON)
-set(Boost_USE_STATIC_RUNTIME OFF)
 find_package(Boost REQUIRED COMPONENTS
-
+    timer 
 )
 
-target_include_directories(FiniteDifferences PUBLIC ${Boost_INCLUDE_DIRS} ${EIGEN3_INCLUDE_DIRS})
+target_include_directories(FiniteDifferences PUBLIC 
+    ${EIGEN3_INCLUDE_DIRS} 
+    ${MKL_INCLUDE_DIRS}
+    ${PCL_INCLUDE_DIRS}
+)
+
+set(MKL_LINKING -Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_intel_lp64.a ${MKLROOT}/lib/intel64/libmkl_gnu_thread.a ${MKLROOT}/lib/intel64/libmkl_core.a -Wl,--end-group)
+
+
+target_link_libraries(FiniteDifferences Boost::timer ${PCL_LIBRARIES} ${MKL_LINKING} gomp pthread m dl)
+

@@ -1,10 +1,19 @@
 #pragma once
 
-//#include <boost/timer/timer.hpp>
+#include "build_problem.h"
 
+#include <boost/timer/timer.hpp>
+
+//#undef EIGEN_USE_MKL_ALL
+
+#include <Eigen/Sparse>
 #include <Eigen/Core>
-#include <Eigen/IterativeLinearSolvers>
 
+#include <cstdlib>
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <limits>
 
 namespace sc1
 {
@@ -14,14 +23,20 @@ class ConjugateGradient
 {
 public:        
         template<typename DerivedB, typename MatVecMult>
-        DerivedB solve(const Eigen::MatrixBase<DerivedB>& b, const MatVecMult mult)
+        DerivedB solve(const DerivedB& b, const MatVecMult mult)
         {
-            //boost::timer::auto_cpu_timer t("Running cg took %w seconds\n");
+            boost::timer::auto_cpu_timer t("Running cg took %w seconds\n");
+            
             using namespace Eigen;
             
-            MatrixBase<DerivedB> x = DerivedB::Zero(b.rows());
-            MatrixBase<DerivedB> r = b - mult(m_A, x);
-            MatrixBase<DerivedB> p = r;
+            if(!m_iterations)
+                m_iterations = b.rows();
+            
+            m_iterationsUsed = m_iterations;
+            
+            DerivedB x = DerivedB::Zero(b.rows());
+            DerivedB r = b - mult(m_A, x);
+            DerivedB p = r;
             typename DerivedA::Scalar rsold = r.dot(r);
             
             for(int i = 0; i < m_iterations; ++i)
@@ -33,12 +48,16 @@ public:
                 typename DerivedA::Scalar rsnew = r.dot(r);
                 
                 if(std::sqrt(rsnew) < m_minResidual)
+                {
+                    m_iterationsUsed = i+1;
+                    printf("Terminating cg after %d iterations because residual %.16g is smaller than %.16g\n", i+1, std::sqrt(rsnew), m_minResidual);
                     break;
+                }
                 
                 p = r + (rsnew / rsold) * p;
                 rsold = rsnew;
             }
-
+            
             return x;
         }
         
@@ -57,9 +76,15 @@ public:
             m_minResidual = minResidual;
         }
         
+        int iterations()
+        {
+            return m_iterationsUsed;
+        }
+        
 private:
-	Eigen::MatrixBase<DerivedA> m_A;
-	int m_iterations = 100;
+	DerivedA m_A;
+	int m_iterations = 0;
+        int m_iterationsUsed;
         typename DerivedA::Scalar m_minResidual = typename DerivedA::Scalar(1e-10);
 };
 
