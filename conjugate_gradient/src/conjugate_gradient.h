@@ -4,7 +4,7 @@
 
 #include <boost/timer/timer.hpp>
 
-def EIGEN_USE_MKL_ALL
+// #def EIGEN_USE_MKL_ALL
 
 #include <Eigen/Sparse>
 #include <Eigen/Core>

@@ -25,7 +25,7 @@ using Scalar = double; //not be integral
 
 int global;
 
-Scalar computeCgError(Scalar nx, int iterations)
+Scalar computeCgError(Scalar nx)
 {
     int n = nx;
     
@@ -68,7 +68,7 @@ int main(int argc, char** argv)
     os >> minResidual;
  
 
-    pcl::visualization::PCLPlotter * plotter = new pcl::visualization::PCLPlotter ();
+    auto plotter = std::make_unique<pcl::visualization::PCLPlotter>();
 
     std::vector<char> red = {(char)255,(char)0,(char)0,(char)255};
     std::vector<char> blue = {(char)0,(char)0,(char)255,(char)255};
@@ -80,15 +80,10 @@ int main(int argc, char** argv)
         std::ostringstream ss;
         ss << "CgSolver with " << iterations << " iterations";
         
-        using namespace std::placeholders;
-        std::function<double(double)> cgErrorIterations = std::bind(computeCgError, _1, iterations);
-        
-        plotter->addPlotData (cgErrorIterations, 100, 500, ss.str().c_str(), 100, vtkChart::POINTS, red);
+        global = iterations;
+        plotter->addPlotData (computeCgError, 100, 500, ss.str().c_str(), 100, vtkChart::POINTS, red);
     }
     
     plotter->plot ();
     
-    delete plotter;
-    
-    return 0;
 }
