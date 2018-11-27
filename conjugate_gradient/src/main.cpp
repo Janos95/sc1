@@ -1,4 +1,5 @@
-#define _SILENCE_CXX17_NEGATORS_DEPRECATION_WARNING
+// #def EIGEN_USE_MKL_ALL
+
 
 #include "conjugate_gradient.h"
 #include "build_problem.h"
@@ -8,8 +9,10 @@
 #include <Eigen/Sparse>
 #include <Eigen/Core>
 
-#include <pcl/visualization/pcl_plotter.h>
-#include <vtk-6.2/vtkChart.h>
+// #include <pcl/visualization/pcl_plotter.h>
+// #include <vtk-6.2/vtkChart.h>
+
+#include <fmt/format.h>
 
 #include <boost/timer/timer.hpp>
 
@@ -21,17 +24,18 @@
 #include <functional>
 
 
-using Scalar = double; //not be integral
+using namespace ranges;
+using namespace std::placeholders;
 
-int global;
+using Scalar = double; 
 
-Scalar computeCgError(Scalar nx)
+Scalar computeCgError(int iterations, Scalar nx)
 {
     int n = nx;
     
     auto [A, b] = sc1::buildPoissonProblem<Scalar>(n);
     sc1::ConjugateGradient<decltype(A)> cg;
-    cg.setIterations(global);
+    cg.setIterations(iterations);
     cg.setMatrix(A);
     
     auto x = cg.solve(b, sc1::mklSbmv<decltype(A), decltype(b)>);
@@ -58,7 +62,7 @@ int main(int argc, char** argv)
     
     if(argc!=3)
     {
-        std::cerr << "Error: expected one and only one argument.\n";
+        std::cerr << "Error: expected 2 and only 2 argument.\n";
         return -1;
     }	
     
@@ -67,23 +71,36 @@ int main(int argc, char** argv)
     Scalar minResidual;
     os >> minResidual;
  
-
-    auto plotter = std::make_unique<pcl::visualization::PCLPlotter>();
-
-    std::vector<char> red = {(char)255,(char)0,(char)0,(char)255};
-    std::vector<char> blue = {(char)0,(char)0,(char)255,(char)255};
+    Plotter plotter;
+    plotter.setXAxis(view::linear_distribute(5.f, n , 100)); // problem sizes
     
-    plotter->addPlotData (computeTriDiagError, 100, 500, "TriDiagSolver", 100, vtkChart::POINTS, blue);
-    
-    for(const int iterations: {1, 5, 500})
+    for(const auto& [iterations, color]: {{1, red}, {5, green}, {500, blue}})
     {
-        std::ostringstream ss;
-        ss << "CgSolver with " << iterations << " iterations";
-        
-        global = iterations;
-        plotter->addPlotData (computeCgError, 100, 500, ss.str().c_str(), 100, vtkChart::POINTS, red);
+        std::string plotName = fmt::format("CgSolver with {} iterations", iterations);
+        const auto function = std::bind(computeCgError, iterations, _1);
+        plotter.plot (function, color, plotName);
     }
     
-    plotter->plot ();
+    plotter.spin();
+    
+    
+//     auto plotter = std::make_unique<pcl::visualization::PCLPlotter>();
+// 
+//     std::vector<char> red = {(char)255,(char)0,(char)0,(char)255};
+//     std::vector<char> blue = {(char)0,(char)0,(char)255,(char)255};
+//     
+//     plotter->addPlotData (computeTriDiagError, 100, 500, "TriDiagSolver", 100, vtkChart::POINTS, blue);
+//     
+//     for(const int iterations: {1, 5, 500})
+//     {
+// //         std::ostringstream ss;
+// //         ss << "CgSolver with " << iterations << " iterations";
+//         std::string plotName = fmt::format("CgSolver with {} iterations", iterations);
+//         
+//         global = iterations;
+//         plotter->addPlotData (computeCgError, 100, 500, plotName.c_str(), 100, vtkChart::POINTS, red);
+//     }
+//     
+//     plotter->plot ();
     
 }

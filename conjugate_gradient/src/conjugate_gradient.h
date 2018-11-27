@@ -4,8 +4,6 @@
 
 #include <boost/timer/timer.hpp>
 
-// #def EIGEN_USE_MKL_ALL
-
 #include <Eigen/Sparse>
 #include <Eigen/Core>
 
@@ -18,12 +16,12 @@
 namespace sc1
 {
     
-template<typename DerivedA>
+template<typename MatrixT>
 class ConjugateGradient
 {
 public:        
-        template<typename DerivedB, typename MatVecMult>
-        DerivedB solve(const DerivedB& b, const MatVecMult mult)
+        template<typename VectorT, typename MatVecMult>
+        VectorT solve(const VectorT& b, const MatVecMult mult)
         {
             boost::timer::auto_cpu_timer t("Running cg took %w seconds\n");
             
@@ -34,23 +32,23 @@ public:
             
             m_iterationsUsed = m_iterations;
             
-            DerivedB x = DerivedB::Zero(b.rows());
-            DerivedB r = b - mult(m_A, x);
-            DerivedB p = r;
-            typename DerivedA::Scalar rsold = r.dot(r);
+            VectorT x = VectorT::Zero(b.rows());
+            VectorT r = b - mult(m_A, x);
+            VectorT p = r;
+            typename MatrixT::Scalar rsold = r.dot(r);
             
             for(int i = 0; i < m_iterations; ++i)
             {
-                DerivedB Ap = mult(m_A, p);
-                typename DerivedA::Scalar alpha = rsold / p.dot(Ap);
+                VectorT Ap = mult(m_A, p);
+                typename MatrixT::Scalar alpha = rsold / p.dot(Ap);
                 x +=  alpha * p;
                 r -= alpha * Ap;
-                typename DerivedA::Scalar rsnew = r.dot(r);
+                typename MatrixT::Scalar rsnew = r.dot(r);
                 
                 if(std::sqrt(rsnew) < m_minResidual)
                 {
                     m_iterationsUsed = i+1;
-                    printf("Terminating cg after %d iterations because residual %.16g is smaller than %.16g\n", i+1, std::sqrt(rsnew), m_minResidual);
+                    fmt::printf("Terminating cg after %d iterations because residual %.16g is smaller than %.16g\n", i+1, std::sqrt(rsnew), m_minResidual);
                     break;
                 }
                 
@@ -61,7 +59,7 @@ public:
             return x;
         }
         
-        void setMatrix(const DerivedA& A)
+        void setMatrix(const MatrixT& A)
         {
             m_A = A;
         }
@@ -71,7 +69,7 @@ public:
             m_iterations = iterations;
         }
         
-        void setMinResidual(typename DerivedA::Scalar minResidual)
+        void setMinResidual(typename MatrixT::Scalar minResidual)
         {
             m_minResidual = minResidual;
         }
@@ -82,10 +80,10 @@ public:
         }
         
 private:
-	DerivedA m_A;
+	MatrixT m_A;
 	int m_iterations = 0;
         int m_iterationsUsed;
-        typename DerivedA::Scalar m_minResidual = typename DerivedA::Scalar(1e-10);
+        typename MatrixT::Scalar m_minResidual = typename MatrixT::Scalar(1e-10);
 };
 
 }
