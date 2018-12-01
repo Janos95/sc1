@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="conjugate_gradient"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/janos/sc1/conjugate_gradient/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/janos/sc1/conjugate_gradient/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/janos/sc1/conjugate_gradient/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/janos/sc1/conjugate_gradient/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/janos/sc1/conjugate_gradient/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/janos/sc1/conjugate_gradient/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/janos/sc1/conjugate_gradient/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/janos/sc1/conjugate_gradient/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/janos/sc1/conjugate_gradient/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/janos/sc1/conjugate_gradient/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="conjugate_gradient">
+				<Option output="/home/janos/sc1/conjugate_gradient/cmake-build-debug/conjugate_gradient" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/janos/sc1/conjugate_gradient/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/janos/sc1/conjugate_gradient/src"/>
+					<Add directory="/home/janos/sc1/conjugate_gradient/src/plot"/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/janos/sc1/conjugate_gradient/cmake-build-debug/Makefile&quot;  VERBOSE=1 conjugate_gradient"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/janos/sc1/conjugate_gradient/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/janos/sc1/conjugate_gradient/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/janos/sc1/conjugate_gradient/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="conjugate_gradient/fast">
+				<Option output="/home/janos/sc1/conjugate_gradient/cmake-build-debug/conjugate_gradient" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/janos/sc1/conjugate_gradient/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/janos/sc1/conjugate_gradient/src"/>
+					<Add directory="/home/janos/sc1/conjugate_gradient/src/plot"/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/janos/sc1/conjugate_gradient/cmake-build-debug/Makefile&quot;  VERBOSE=1 conjugate_gradient/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/janos/sc1/conjugate_gradient/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/janos/sc1/conjugate_gradient/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/janos/sc1/conjugate_gradient/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/janos/sc1/conjugate_gradient/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/janos/sc1/conjugate_gradient/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/janos/sc1/conjugate_gradient/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/janos/sc1/conjugate_gradient/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/janos/sc1/conjugate_gradient/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/janos/sc1/conjugate_gradient/CMakeLists.txt">
+			<Option target="conjugate_gradient"/>
+		</Unit>
+		<Unit filename="/home/janos/sc1/conjugate_gradient/conanfile.txt">
+			<Option target="conjugate_gradient"/>
+		</Unit>
+		<Unit filename="/home/janos/sc1/conjugate_gradient/src/build_problem.h">
+			<Option target="conjugate_gradient"/>
+		</Unit>
+		<Unit filename="/home/janos/sc1/conjugate_gradient/src/conjugate_gradient.h">
+			<Option target="conjugate_gradient"/>
+		</Unit>
+		<Unit filename="/home/janos/sc1/conjugate_gradient/src/main.cpp">
+			<Option target="conjugate_gradient"/>
+		</Unit>
+		<Unit filename="/home/janos/sc1/conjugate_gradient/src/mkl_tridiagonal_solver.h">
+			<Option target="conjugate_gradient"/>
+		</Unit>
+		<Unit filename="/home/janos/sc1/conjugate_gradient/src/plot/plot.h">
+			<Option target="conjugate_gradient"/>
+		</Unit>
+		<Unit filename="/home/janos/sc1/conjugate_gradient/src/sbmv.h">
+			<Option target="conjugate_gradient"/>
+		</Unit>
+		<Unit filename="/home/janos/sc1/conjugate_gradient/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

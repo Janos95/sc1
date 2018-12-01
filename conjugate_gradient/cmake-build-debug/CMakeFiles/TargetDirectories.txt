@@ -1,0 +1,3 @@
+/home/janos/sc1/conjugate_gradient/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/janos/sc1/conjugate_gradient/cmake-build-debug/CMakeFiles/conjugate_gradient.dir
+/home/janos/sc1/conjugate_gradient/cmake-build-debug/CMakeFiles/edit_cache.dir

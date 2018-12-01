@@ -1,0 +1,13 @@
+/home/janos/libraries/cmake-3.13.0-rc2/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_COMPILER=/usr/bin/g++-8 -G "CodeBlocks - Unix Makefiles" /home/janos/sc1/conjugate_gradient
+CMake Error at CMakeLists.txt:5 (include):
+  include could not find load file:
+
+    /home/janos/sc1/conjugate_gradient/cmake-build-debug/conanbuildinfo.cmake
+
+
+CMake Error at CMakeLists.txt:6 (conan_basic_setup):
+  Unknown CMake command "conan_basic_setup".
+
+
+-- Configuring incomplete, errors occurred!
+See also "/home/janos/sc1/conjugate_gradient/cmake-build-debug/CMakeFiles/CMakeOutput.log".

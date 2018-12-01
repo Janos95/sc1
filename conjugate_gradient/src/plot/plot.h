@@ -23,10 +23,11 @@ public:
     {
         view = vtkSmartPointer<vtkContextView>::New();
         view->GetRenderer()->SetBackground(1.0, 1.0, 1.0);
-        
-        table = vtkSmartPointer<vtkTable>::New();
+
+        chart = vtkSmartPointer<vtkChartXY>::New();
+        view->GetScene()->AddItem(chart);
     }
-    
+
     template<typename Range>
     void setXAxis(const Range range)
     {
@@ -35,30 +36,19 @@ public:
     }
     
     template<typename F>
-    void plot(F f, const std::array<char)
+    void plot(F f, const std::array<char>& color, )
     {
-        vtkSmartPointer<vtkChartXY> chart = vtkSmartPointer<vtkChartXY>::New();
-        view->GetScene()->AddItem(chart);
+
         vtkPlot *line = chart->AddPlot(vtkChart::LINE);
 
-        line->SetInputData(table, 0, 1);
-     
-        line->SetColor(0, 255, 0, 255);
-        line->SetWidth(1.0);
-        line = chart->AddPlot(vtkChart::LINE);
-        #if VTK_MAJOR_VERSION <= 5
-        line->SetInput(table, 0, 2);
-        #else
-        line->SetInputData(table, 0, 2);
-        #endif
-        line->SetColor(255, 0, 0, 255);
-        line->SetWidth(5.0);
+        vtkSmartPointer<vtkTable> table = vtkSmartPointer<vtkTable>::New();
 
-        // For dotted line, the line type can be from 2 to 5 for different dash/dot
-        // patterns (see enum in vtkPen containing DASH_LINE, value 2):
-        #ifndef WIN32
-        line->GetPen()->SetLineType(vtkPen::DASH_LINE);
-        #endif
+
+
+        line->SetInputData(table, 0, 1);
+        line->SetColor(color[0], color[2], color[3], 255);
+        line->SetWidth(1.0);
+
     }
         
     void spin()
@@ -69,7 +59,7 @@ public:
     
 private:
     vtkSmartPointer<vtkContextView> view;
-    vtkSmartPointer<vtkTable> table;
+    vtkSmartPointer<vtkChartXY> chart
     
     std::vector<float> xAxis;
     std::vector<std::vector<float>> ys;
