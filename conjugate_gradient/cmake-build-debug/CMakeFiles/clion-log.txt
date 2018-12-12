@@ -1,0 +1,44 @@
+/snap/clion/56/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/janos/sc1/conjugate_gradient
+-- The CXX compiler identification is GNU 7.3.0
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Warning at CMakeLists.txt:16 (find_package):
+  By not providing "FindEigen3.cmake" in CMAKE_MODULE_PATH this project has
+  asked CMake to find a package configuration file provided by "Eigen3", but
+  CMake did not find one.
+
+  Could not find a package configuration file provided by "Eigen3" with any
+  of the following names:
+
+    Eigen3Config.cmake
+    eigen3-config.cmake
+
+  Add the installation prefix of "Eigen3" to CMAKE_PREFIX_PATH or set
+  "Eigen3_DIR" to a directory containing one of the above files.  If "Eigen3"
+  provides a separate development package or SDK, be sure it has been
+  installed.
+
+
+-- Could NOT find MKL (missing: MKL_LIBRARIES MKL_INCLUDE_DIRS MKL_INTERFACE_LIBRARY MKL_SEQUENTIAL_LAYER_LIBRARY MKL_CORE_LIBRARY) 
+CMake Error at CMakeLists.txt:18 (find_package):
+  By not providing "FindPCL.cmake" in CMAKE_MODULE_PATH this project has
+  asked CMake to find a package configuration file provided by "PCL", but
+  CMake did not find one.
+
+  Could not find a package configuration file provided by "PCL" (requested
+  version 1.2) with any of the following names:
+
+    PCLConfig.cmake
+    pcl-config.cmake
+
+  Add the installation prefix of "PCL" to CMAKE_PREFIX_PATH or set "PCL_DIR"
+  to a directory containing one of the above files.  If "PCL" provides a
+  separate development package or SDK, be sure it has been installed.
+
+
+-- Configuring incomplete, errors occurred!
+See also "/home/janos/sc1/conjugate_gradient/cmake-build-debug/CMakeFiles/CMakeOutput.log".

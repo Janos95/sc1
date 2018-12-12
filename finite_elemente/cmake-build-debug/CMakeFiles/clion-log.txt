@@ -1,0 +1,51 @@
+/snap/clion/56/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/janos/CLionProjects/finite_elemente
+-- Current conanbuildinfo.cmake directory: /home/janos/CLionProjects/finite_elemente/cmake-build-debug
+-- Conan: Compiler GCC>=5, checking major version 7.3
+-- Conan: Checking correct version: 7.3
+-- Conan: Using cmake targets configuration
+-- Library boost_wave found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_wave.a
+-- Library boost_container found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_container.a
+-- Library boost_contract found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_contract.a
+-- Library boost_exception found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_exception.a
+-- Library boost_graph found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_graph.a
+-- Library boost_iostreams found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_iostreams.a
+-- Library boost_locale found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_locale.a
+-- Library boost_log found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_log.a
+-- Library boost_program_options found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_program_options.a
+-- Library boost_random found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_random.a
+-- Library boost_regex found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_regex.a
+-- Library boost_serialization found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_serialization.a
+-- Library boost_wserialization found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_wserialization.a
+-- Library boost_signals found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_signals.a
+-- Library boost_coroutine found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_coroutine.a
+-- Library boost_fiber found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_fiber.a
+-- Library boost_context found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_context.a
+-- Library boost_timer found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_timer.a
+-- Library boost_thread found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_thread.a
+-- Library boost_chrono found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_chrono.a
+-- Library boost_date_time found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_date_time.a
+-- Library boost_atomic found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_atomic.a
+-- Library boost_filesystem found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_filesystem.a
+-- Library boost_system found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_system.a
+-- Library boost_type_erasure found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_type_erasure.a
+-- Library boost_stacktrace_basic found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_stacktrace_basic.a
+-- Library boost_stacktrace_addr2line found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_stacktrace_addr2line.a
+-- Library boost_math_tr1l found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_math_tr1l.a
+-- Library boost_stacktrace_backtrace found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_stacktrace_backtrace.a
+-- Library boost_unit_test_framework found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_unit_test_framework.a
+-- Library boost_math_c99 found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_math_c99.a
+-- Library boost_math_tr1 found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_math_tr1.a
+-- Library boost_stacktrace_noop found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_stacktrace_noop.a
+-- Library boost_math_c99l found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_math_c99l.a
+-- Library boost_math_c99f found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_math_c99f.a
+-- Library boost_math_tr1f found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_math_tr1f.a
+-- Library boost_log_setup found /home/janos/.conan/data/boost/1.68.0/conan/stable/package/bc269ebfd59d1b697c9e378109c796d444707c1b/lib/libboost_log_setup.a
+-- Library pthread not found in package, might be system one
+-- Library fmt found /home/janos/.conan/data/fmt/5.2.1/bincrafters/stable/package/d207cc5aa44645708b3bc6d0cfcc1fe8a45b0e8a/lib/libfmt.a
+-- Library bz2 found /home/janos/.conan/data/bzip2/1.0.6/conan/stable/package/b876a42f8cf4751676d4c652f0b8e8ded88b4acd/lib/libbz2.a
+-- Library z found /home/janos/.conan/data/zlib/1.2.11/conan/stable/package/b876a42f8cf4751676d4c652f0b8e8ded88b4acd/lib/libz.a
+-- Conan: Adjusting default RPATHs Conan policies
+-- Conan: Adjusting language standard
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/janos/CLionProjects/finite_elemente/cmake-build-debug

@@ -1,0 +1,15 @@
+[requires]
+boost/1.68.0@conan/stable
+eigen/3.3.5@conan/stable
+fmt/5.2.1@bincrafters/stable
+range-v3/0.4.0@ericniebler/stable
+openblas/0.2.20@conan/stable
+
+
+[options]
+eigen:EIGEN_USE_BLAS=True
+openblas:USE_OPENMP=True
+
+[generators]
+cmake
+
